@@ -1,0 +1,22 @@
+header {
+    width: 100vw;
+    height: 67px;
+
+    background-color: #c3cfd9;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: fixed;
+    left: 0;
+    top: 0;
+
+    z-index: 10;
+}
+
+h1 {
+    font-size: 34px;
+    font-weight: normal;
+    color: #e8833a;
+}
