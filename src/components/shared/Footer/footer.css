@@ -1,0 +1,36 @@
+footer {
+    height: 100px;
+    background-color: #dfe6ed;
+
+    border: 1px solid #9eadba; 
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    padding: 10px;
+
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+
+footer h1 {
+    color: #293845;
+    font-size: 26px;
+    font-weight: normal;
+    margin: 5px;
+}
+
+footer .movie {
+    width: 21vw;
+    height: 23vw;
+
+    border-radius: 2px;
+    margin-top: 10px;
+}
+
+footer .movie img {
+    width: 80%;
+    height: 83%;    
+}
