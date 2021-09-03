@@ -1,8 +1,7 @@
-export default function Movie({ movie }) {
-    console.log(movie.posterURL)
+export default function Movie({ title, posterURL, overview, releaseDate }) {
     return (
         <div className="movie">
-            <img src={movie.posterURL} />
+            <img src={posterURL} alt=""/>
         </div>
     );
 }
