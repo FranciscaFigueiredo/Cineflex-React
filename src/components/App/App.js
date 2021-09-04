@@ -5,6 +5,7 @@ import './App.css';
 import Header from '../Header/Header';
 import Home from "../Home/Home";
 import Sessions from "../Sessions/Sessions";
+import BuyTickets from "../BuyTickets/BuyTickets";
 
 function App() {
   return (
@@ -16,6 +17,9 @@ function App() {
         </Route>
         <Route path="/sessoes/:idMovie" exact >
           <Sessions />
+        </Route>
+        <Route path="/assentos/:idSession" exact >
+          <BuyTickets />
         </Route>
       </Switch>
       

@@ -1,28 +1,37 @@
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+
 export default function Session(props) {
-    console.log(props)
-    const days = props.session.days;
-    console.log(days)
+    const [days, setDays] = useState([]);
+    console.log(props.session.id)
+
+    useEffect(() => {
+        setDays(props.session.days);
+        console.log(days)
+    }, [])
 
     return (
         <div className="sessions">
-            {props.session.days.map((day) => (<Days day={day} />))}
+            {props.session.days.map((day) => (<Days day={day} movie={props.session.id} />))} 
         </div>
     );
 }
 
-function Days(day) {
-    console.log(day.day)
+function Days({day, movie}) {
+    console.log(day)
     return (
         <div className="session" >
-            <h3>{day.day.weekday} - {day.day.date} </h3>
-            {day.day.showtimes.map((showtime) => (<Button showtime={showtime} />))}
+            <h3>{day.weekday} - {day.date} </h3>
+            {day.showtimes.map((showtime) => (<Button id={day.id} showtime={showtime} movie={movie} />))}
         </div>
     )
 }
 
-function Button(showtime) {
-    console.log(showtime.showtime)
+function Button({id, showtime, movie}) {
+    console.log(movie)
     return (
-        <button>{showtime.showtime.name}</button>
+        <Link to={`/assentos/${movie}`} >
+            <button>{showtime.name}</button>
+        </Link>
     )
 }

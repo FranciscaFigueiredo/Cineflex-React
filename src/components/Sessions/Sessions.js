@@ -23,7 +23,7 @@ export default function Sessions() {
         <div className="home">
             <h2>Selecione o horário</h2>
             <Session session={sessions} />
-            <Footer title={sessions.title} posterURL={sessions.posterURL} />
+            <Footer movie={id} title={sessions.title} posterURL={sessions.posterURL} />
         </div>
     );
 }
