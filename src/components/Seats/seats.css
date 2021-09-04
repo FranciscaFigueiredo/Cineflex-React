@@ -1,0 +1,48 @@
+.seats {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.seat {
+    width: 5vw;
+    height: 7vw;
+    flex: 1 0 8%;
+
+    margin: 3px;
+
+    background-color: #c3cfd9;
+    border-radius: 50%;
+    border: none;
+}
+
+/* .seat span {
+    font-size: 11px;
+} */
+
+.data {
+    margin-top: 30px;
+    text-align: left;
+
+    margin-bottom: 30px;
+}
+
+.data input {
+    width: 96%;
+    height: 40px;
+
+    font-size: 18px;
+
+    border: 1px solid #D5D5D5;
+    padding: 10px;
+
+    overflow: auto;
+}
+
+.data input:focus {
+    outline: 0;
+}
+
+.data input::placeholder {
+    color: #afafaf;
+    font-size: 18px;
+}
