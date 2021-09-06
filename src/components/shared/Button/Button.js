@@ -1,8 +1,9 @@
 import "./button.css"
-export default function Button({text}) {
+export default function Button({text, acao}) {
     return (
-        <div className="button">
+        <div className="button" onClick={() => acao()}>
             <button>{text}</button>
         </div>
+        
     )
 }

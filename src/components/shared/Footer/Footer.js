@@ -1,16 +1,21 @@
+import styled from "styled-components";
 import "./footer.css"
 
-export default function Footer({ title, posterURL }) {
+export default function Footer({ title, posterURL, session }) {
     return (
         <footer>
             <div className="movie">
                 <img src={posterURL} alt=""/>
             </div>
-            <div>
+            <Text>
                 <h1>{title}</h1>
-                {/* <h2></h2> */}
-            </div>
+                <h1>{session}</h1>
+            </Text>
             
         </footer>
     );
 }
+
+const Text = styled.div`
+    height: 100px;
+`

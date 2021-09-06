@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import styled from 'styled-components';
+import { setList } from "../BuyTickets/BuyTickets";
 
 import "./seats.css"
 
@@ -7,53 +8,55 @@ export default function Seats({tickets}) {
     const [seats, setSeats] = useState([]);
     console.log(tickets.seats);
 
+    const [list, setList] = useState([]);
+    
     useEffect(() => {
-        setSeats(tickets.seats)
+        setList([]);
+        setSeats(tickets.seats);
     }, [])
 
     return (
         <>
             <div className="seats">
-                 {tickets.seats.map((seat) => (<Seat key={seat.id} seat={seat.name} isAvailable={seat.isAvailable} click={true} />)) } 
+                 {tickets.seats.map((seat) => (<Seat key={seat.id} seat={seat.name} isAvailable={seat.isAvailable} click={true} list={list} setList={setList} /> ))}
             </div> 
             <SeatsFooter />
         </>
     );
 }
 
-function Seat({seat, isAvailable},click) {
+function Seat({seat, isAvailable, click, list, setList}) {
     console.log(seat);
+    console.log(list);
+
     console.log(isAvailable);
-    const [list, setList] = useState([]);
+    
     const [selected, setSelected] = useState(true);
-    console.log(selected);
+
+    if (isAvailable === false) {
+        click = false;
+    }
     
     useEffect(() => {
-        setSelected(isAvailable)
+        setSelected(isAvailable);
     }, [])
 
-    let type = "seat"
-    console.log(selected);
-    console.log(list);
-    
-    function selectSeats() {
+    function selectSeats(seat) {
         console.log(seat);
-        if (!(list.find((prod) => (prod === seat))) || list === []){
-        // if (list.find((seats) => (seats.name === seat))){
-            console.log(list.find((prod) => console.log(prod)))
+        if (!(list.find((seats) => (seats === seat))) || list === []) {
             setList([...list, seat]);
             setSelected("selected");
         } else {
-            console.log("else")
+            console.log("ELSE")
             setList(list.filter((seats) => (seats !== seat)));
             setSelected(true)
+            console.log(list);
         }
-        
         console.log(seat);
     }
-
+    
     return (
-        <SeatStyle isAvailable={selected} name={seat} onClick={selectSeats} disabled={selected === false ? true : ""} >
+        <SeatStyle isAvailable={selected} name={seat} onClick={() => selectSeats(seat)} disabled={click === false ? true : ""} >
             {seat}
         </SeatStyle>
     )

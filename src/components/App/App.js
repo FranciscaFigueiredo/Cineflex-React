@@ -6,6 +6,7 @@ import Header from '../Header/Header';
 import Home from "../Home/Home";
 import Sessions from "../Sessions/Sessions";
 import BuyTickets from "../BuyTickets/BuyTickets";
+import Success from "../Success/Success";
 
 function App() {
   return (
@@ -20,6 +21,9 @@ function App() {
         </Route>
         <Route path="/assentos/:idSession" exact >
           <BuyTickets />
+        </Route>
+        <Route path="/sucesso" exact >
+          <Success />
         </Route>
       </Switch>
       

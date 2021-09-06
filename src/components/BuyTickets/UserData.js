@@ -1,16 +1,12 @@
 import { useState } from "react"
 
-export default function UserData() {
+export default function UserData({dados}) {
     const [cpf, setCpf] = useState("")
     if(cpf.length === 3 || cpf.length === 7) {
         setCpf(cpf + ".");
     } else if (cpf.length === 11) {
         setCpf(cpf + "-");
     }
-    // campoCPF.addEventListener('focusout', () => {
-    //     $valorDoCPF = event.target.value;
-    //     $campoCPF.value = $valorDoCPF.replace(/(\d{3})?(\d{3})?(\d{3})?(\d{2})/, "$1.$2.$3-$4")
-    //   })
     return (
         <div className="data">
             <h3>Nome do comprador:</h3>
@@ -21,4 +17,3 @@ export default function UserData() {
         </div>
     )
 }
-// isNaN(cpf[cpf.length-1]
