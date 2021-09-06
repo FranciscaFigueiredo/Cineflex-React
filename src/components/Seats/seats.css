@@ -2,22 +2,52 @@
     display: flex;
     flex-wrap: wrap;
 }
+.selected {
+    background-color: #8dd7cf;
+}
 
-.seat {
+.disable {
+    background-color: #fbe192;
+}
+.seats .seat {
     width: 5vw;
     height: 7vw;
     flex: 1 0 8%;
 
     margin: 3px;
 
-    background-color: #c3cfd9;
+    /* background-color: #c3cfd9; */
     border-radius: 50%;
     border: none;
 }
 
-/* .seat span {
-    font-size: 11px;
-} */
+.subtitles {
+    width: 90vw;
+    height: 40px;
+    margin: 1px;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.subtitles h5 {
+    font-size: 13px;
+    line-height: 15px;
+}
+
+.subtitles button {
+    /* width: 10vw;
+    height: 10vw;
+    margin: 3px;
+
+    background-color: #c3cfd9;
+    border-radius: 50%;
+    border: none;
+    margin: 10px 0 0; */
+}
+
+
 
 .data {
     margin-top: 30px;
@@ -27,7 +57,7 @@
 }
 
 .data input {
-    width: 96%;
+    width: 93.5%;
     height: 40px;
 
     font-size: 18px;

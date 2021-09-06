@@ -20,14 +20,14 @@ export default function BuyTickets() {
         promise.then((data) => setTickets(data.data))
         .catch('error')
     }, [])
-    console.log(tickets)
+    // console.log(tickets.movie.title)
     return (
         <div className="home">
             <h2>Selecione o(s) assento(s)</h2>
-            <Seats tickets={tickets} />
+            <Seats tickets={tickets} /> 
             <UserData />
             <Button text="Reservar assento(s)" />
-            <Footer title={tickets.movie.title} posterURL={tickets.movie.posterURL} />
+            {/* <Footer title={tickets.movie.title} posterURL={tickets.movie.posterURL} /> */}
         </div>
     )
 }

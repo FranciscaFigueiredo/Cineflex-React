@@ -9,7 +9,7 @@ export default function Session(props) {
         setDays(props.session.days);
         console.log(days)
     }, [])
-
+    console.log(props.session.id)
     return (
         <div className="sessions">
             {props.session.days.map((day) => (<Days day={day} movie={props.session.id} />))} 

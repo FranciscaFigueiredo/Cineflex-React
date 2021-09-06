@@ -1,4 +1,5 @@
 footer {
+    width: 100%;
     height: 100px;
     background-color: #dfe6ed;
 
@@ -6,7 +7,7 @@ footer {
 
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     
     padding: 10px;
     
@@ -23,7 +24,7 @@ footer h1 {
 }
 
 footer .movie {
-    width: 21vw;
+    width: 19.5vw;
     height: 23vw;
 
     border-radius: 2px;
