@@ -14,9 +14,9 @@ export default function UserData() {
     return (
         <div className="data">
             <h3>Nome do comprador:</h3>
-            <input type="text" placeholder="Digite seu nome..."></input>
+            <input type="text" placeholder="Digite seu nome..." required></input>
             <h3>CPF do comprador:</h3>
-            <input type="text" placeholder="Digite seu CPF..." maxLength="14" value={cpf} onChange={(event) => (setCpf(event.target.value)
+            <input type="text" placeholder="Digite seu CPF..." required maxLength="14" value={cpf} onChange={(event) => (setCpf(event.target.value)
             )} />
         </div>
     )

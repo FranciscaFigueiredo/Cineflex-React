@@ -8,38 +8,52 @@ export default function Seats({tickets}) {
     console.log(tickets.seats);
 
     useEffect(() => {
-        
+        setSeats(tickets.seats)
     }, [])
 
     return (
         <>
             <div className="seats">
-                 {tickets.seats.map((seat) => (<Seat key={seat.id} seat={seat.name} isAvailable={seat.isAvailable} />)) } 
+                 {tickets.seats.map((seat) => (<Seat key={seat.id} seat={seat.name} isAvailable={seat.isAvailable} click={true} />)) } 
             </div> 
             <SeatsFooter />
         </>
     );
 }
 
-function Seat({seat, isAvailable}) {
+function Seat({seat, isAvailable},click) {
     console.log(seat);
     console.log(isAvailable);
+    const [list, setList] = useState([]);
+    const [selected, setSelected] = useState(true);
+    console.log(selected);
+    
+    useEffect(() => {
+        setSelected(isAvailable)
+    }, [])
 
     let type = "seat"
-    // const [type, setType] = useState("seat");
+    console.log(selected);
+    console.log(list);
+    
+    function selectSeats() {
+        console.log(seat);
+        if (!(list.find((prod) => (prod === seat))) || list === []){
+        // if (list.find((seats) => (seats.name === seat))){
+            console.log(list.find((prod) => console.log(prod)))
+            setList([...list, seat]);
+            setSelected("selected");
+        } else {
+            console.log("else")
+            setList(list.filter((seats) => (seats !== seat)));
+            setSelected(true)
+        }
+        
+        console.log(seat);
+    }
 
-    // if(isAvailable === true) {
-    //     // setType("seat")
-    //     type = "seat"
-    // } else if(isAvailable === "selected") {
-    //     // setType("seat selected")
-    //     type = "seat selected"
-    // } else {
-    //     // setType("seat disable")
-    //     type = "seat disable"
-    // }
     return (
-        <SeatStyle isAvailable={isAvailable} name={seat} >
+        <SeatStyle isAvailable={selected} name={seat} onClick={selectSeats} disabled={selected === false ? true : ""} >
             {seat}
         </SeatStyle>
     )
@@ -63,7 +77,7 @@ function SeatsFooter() {
     return (
         <>
             <div className="subtitles">
-                {subtitles.map((subtitle, index) => (<Seat key={index} seat={""} isAvailable={subtitle.isAvailable} />))}
+                {subtitles.map((subtitle, index) => (<Seat key={index} seat={""} isAvailable={subtitle.isAvailable} click={false} />))}
             </div>
             <div className="subtitles">
                 {subtitles.map((subtitle) => (<h5>{subtitle.name}</h5>))}

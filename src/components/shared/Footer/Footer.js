@@ -6,7 +6,11 @@ export default function Footer({ title, posterURL }) {
             <div className="movie">
                 <img src={posterURL} alt=""/>
             </div>
-            <h1>{title}</h1>
+            <div>
+                <h1>{title}</h1>
+                {/* <h2></h2> */}
+            </div>
+            
         </footer>
     );
 }
