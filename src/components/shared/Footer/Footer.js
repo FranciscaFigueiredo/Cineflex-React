@@ -3,8 +3,7 @@ import "./footer.css"
 
 export default function Footer({ title, posterURL, session }) {
     let time
-    time = ""
-    console.log(session)
+    time = "";
     if(session) {
         time = <h1>{session}</h1>
     }

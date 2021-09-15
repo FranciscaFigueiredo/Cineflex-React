@@ -17,7 +17,6 @@ export default function Sessions() {
         promise.then((data) => setSessions(data.data))
         .catch('error')
     }, [])
-    console.log(sessions)
     
     return (
         <div className="home">

@@ -6,7 +6,6 @@ import "./seats.css"
 
 export default function Seats({ tickets, seat, isAvailable, ids, setIds, click}) {
     const [seats, setSeats] = useState([]);
-    console.log(tickets.seats);
 
     const [list, setList] = useState([]);
     
@@ -32,10 +31,6 @@ export default function Seats({ tickets, seat, isAvailable, ids, setIds, click})
 }
 
 function Seat({seat, isAvailable, click, list, setList}) {
-    console.log(seat);
-    console.log(list);
-
-    console.log(isAvailable);
     
     const [selected, setSelected] = useState(true);
 
@@ -48,17 +43,13 @@ function Seat({seat, isAvailable, click, list, setList}) {
     }, [])
 
     function selectSeats(seat) {
-        console.log(seat);
         if (!(list.find((seats) => (seats === seat))) || list === []) {
             setList([...list, seat]);
             setSelected("selected");
         } else {
-            console.log("ELSE")
             setList(list.filter((seats) => (seats !== seat)));
             setSelected(true)
-            console.log(list);
         }
-        console.log(seat);
     }
     
     return (
