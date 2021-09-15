@@ -3,7 +3,13 @@ import styled from "styled-components";
 import Button from "../shared/Button/Button";
 import Footer from "../shared/Footer/Footer";
 
-export default function Success() {
+export default function Success({ dados }) {
+
+    const { ids, tickets } = dados;
+
+    const { movie , day, name } = tickets;
+    
+    console.log(dados)
     function acao() {
         console.log("entrou")
     }
@@ -12,19 +18,20 @@ export default function Success() {
             <Title>Pedido feito com sucesso!</Title>
             <Filme>
                 <H2><strong>Filme e sessão</strong></H2>
-                <H2>Filme escolhido</H2>
-                <H2>Data escolhida</H2>
+                <H2>{movie.title}</H2>
+                <H2>{day.weekday} {name} </H2>
             </Filme>
             <Filme>
                 <H2><strong>Ingressos   </strong></H2>
-                <H2>Assento escolhido</H2>
-                <H2>Assento escolhido</H2>
+                {ids.map((seat) => <H2>Assento {seat}</H2> )}
             </Filme>
             <Filme>
                 <H2><strong>Comprador</strong></H2>
-                <H2>Nome pessoa</H2>
-                <H2>CPF pessoa</H2>
+                <H2>Nome: {dados.name}</H2>
+                <H2>CPF: {dados.cpf}</H2>
             </Filme>
+            <br/>
+            <br/>
 
             <Link to="/" >
                 <Button text="Voltar pra Home" acao={acao} />

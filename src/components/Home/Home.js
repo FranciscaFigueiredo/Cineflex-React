@@ -13,7 +13,7 @@ export default function Home() {
         const promise = axios.get(URL)
         promise.then((data) => setMovies(data.data))
         .catch('error')
-    }, [])
+    }, [])  
     
     return (
         <div className="home">

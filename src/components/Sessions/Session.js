@@ -1,18 +1,22 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-export default function Session(props) {
+export default function Session({session}) {
     const [days, setDays] = useState([]);
-    console.log(props.session.id)
+    console.log(session.id)
 
     useEffect(() => {
-        setDays(props.session.days);
+        setDays(session.days);
         console.log(days)
     }, [])
-    console.log(props.session.id)
+    console.log(session.id)
     return (
         <div className="sessions">
-            {props.session.days.map((day) => (<Days day={day} movie={props.session.id} />))} 
+            {days !== [] ?
+                session.days.map((day) => (<Days day={day} movie={session.id} />))
+                : ""
+            }
+             
         </div>
     );
 }

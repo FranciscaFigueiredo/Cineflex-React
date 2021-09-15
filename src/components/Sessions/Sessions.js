@@ -10,7 +10,7 @@ export default function Sessions() {
     const params = useParams();
     const id = params.idMovie;
 
-    const [sessions, setSessions] = useState([]);
+    const [sessions, setSessions] = useState(null);
 
     useEffect(() => {
         const promise = axios.get(`https://mock-api.bootcamp.respondeai.com.br/api/v3/cineflex/movies/${id}/showtimes`)
@@ -22,8 +22,14 @@ export default function Sessions() {
     return (
         <div className="home">
             <h2>Selecione o horário</h2>
-            <Session session={sessions} />
-            <Footer movie={id} title={sessions.title} posterURL={sessions.posterURL} />
+            {sessions ?
+                <Session session={sessions} />
+                : ""
+            }
+            {sessions ?
+                <Footer movie={id} title={sessions.title} posterURL={sessions.posterURL} />
+                : ""
+            }
         </div>
     );
 }

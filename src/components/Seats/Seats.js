@@ -4,7 +4,7 @@ import { setList } from "../BuyTickets/BuyTickets";
 
 import "./seats.css"
 
-export default function Seats({tickets}) {
+export default function Seats({ tickets, seat, isAvailable, ids, setIds, click}) {
     const [seats, setSeats] = useState([]);
     console.log(tickets.seats);
 
@@ -13,12 +13,18 @@ export default function Seats({tickets}) {
     useEffect(() => {
         setList([]);
         setSeats(tickets.seats);
+        setIds([...ids, list])
     }, [])
 
     return (
         <>
             <div className="seats">
-                 {tickets.seats.map((seat) => (<Seat key={seat.id} seat={seat.name} isAvailable={seat.isAvailable} click={true} list={list} setList={setList} /> ))}
+                 
+                {tickets.seats ? 
+                    tickets.seats.map((seat) => (<Seat key={seat.id} seat={seat.name} isAvailable={seat.isAvailable} ids={ids} setIds={setIds} click={true} list={list} setList={setList} /> ))
+                    : ""
+                }
+                    
             </div> 
             <SeatsFooter />
         </>
