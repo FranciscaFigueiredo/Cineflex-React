@@ -1,10 +1,12 @@
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import styled from "styled-components";
 import Button from "../shared/Button/Button";
-import Footer from "../shared/Footer/Footer";
 
 export default function Success({ dados }) {
-
+    const history = useHistory();
+    if (!dados) {
+        history.push("/");
+    }
     const { ids, tickets } = dados;
 
     const { movie , day, name } = tickets;
