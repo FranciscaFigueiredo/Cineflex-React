@@ -3,14 +3,8 @@ import { useEffect, useState } from "react"
 export default function UserData({ dados, setDados }) {
     const [cpf, setCpf] = useState("");
     const [name, setName] = useState("");
-    // let name = "";
-    // let cpf = "";
 
     useEffect(() => {
-        console.log({
-            name,
-            cpf
-        })
         setDados({
             name,
             cpf

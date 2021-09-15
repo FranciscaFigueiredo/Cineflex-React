@@ -9,7 +9,6 @@ export default function Success({ dados }) {
 
     const { movie , day, name } = tickets;
     
-    console.log(dados)
     function acao() {
         console.log("entrou")
     }
@@ -45,6 +44,8 @@ const Filme = styled.div`
 `
 
 const Title = styled.h2`
+    font-size: 24px;
+    font-weight: bold;
     color: #247A6B;
 `
 
